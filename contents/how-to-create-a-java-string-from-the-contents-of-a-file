@@ -1,0 +1,25 @@
+怎样将文件的内容生成java string
+问题：
+我现在使用如下的语句有一段时间了。它看起来是最广泛使用的，最起码在我浏览过的网站来说。
+有谁有一个更好/不同的方法来将文件中的内容转换为java中的string吗？
+
+private String readFile( String file ) throws IOException {
+    BufferedReader reader = new BufferedReader( new FileReader (file));
+    String         line = null;
+    StringBuilder  stringBuilder = new StringBuilder();
+    String         ls = System.getProperty("line.separator");
+
+    try {
+        while( ( line = reader.readLine() ) != null ) {
+            stringBuilder.append( line );
+            stringBuilder.append( ls );
+        }
+
+        return stringBuilder.toString();
+    } finally {
+        reader.close();
+    }
+}
+
+回答：
+StackOverFlow 链接：http://stackoverflow.com/questions/326390/how-to-create-a-java-string-from-the-contents-of-a-file
